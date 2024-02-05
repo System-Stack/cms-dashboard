@@ -1,0 +1,41 @@
+---
+type Props = {
+	version?: 'tonal' | 'outlined' | 'text'
+	type?: 'button' | 'submit' | 'reset'
+	classes?: string
+	disabled?: boolean
+}
+
+const {
+	version = 'tonal',
+	type = 'button',
+	classes,
+	disabled = false,
+} = Astro.props
+---
+
+<button
+	type={type}
+	class:list={[
+		`flex flex-row items-center justify-center
+        py-2.5 px-6 font-medium text-sm rounded-full focus:outline-none`,
+		version == 'tonal' &&
+			`text-darkest bg-middle/70 dark:text-white
+            hover:bg-middle/60 focus:bg-middle/60
+            disabled:text-darkest/50 disabled:bg-middlegray/20 dark:disabled:text-white/50`,
+		version == 'outlined' &&
+			`text-dark border border-dark dark:text-middle dark:border-middle
+                hover:bg-middle/10 focus:bg-middle/10
+                disabled:text-middlegray/40 disabled:bg-transparent disabled:border-middlegray/40
+                dark:disabled:text-middlegray/60 dark:disabled:border-middlegray/60`,
+		version == 'text' &&
+			`border-none text-dark dark:text-middle
+                hover:bg-middle/10 focus:bg-middle/10
+                disabled:text-middlegray/40 disabled:bg-transparent disabled:border-middlegray/40
+                dark:disabled:text-middlegray/60 dark:disabled:border-middlegray/60`,
+		classes,
+	]}
+	disabled={disabled}
+>
+	<slot />
+</button>

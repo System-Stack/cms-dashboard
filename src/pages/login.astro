@@ -1,0 +1,44 @@
+---
+import TwoPanes from '../layouts/TwoPanes.astro'
+import Input from '../components/form/Input.astro'
+import Password from '../components/form/Password.astro'
+import Checkbox from '../components/form/Checkbox.astro'
+import Submit from '../components/form/Submit.astro'
+---
+
+<TwoPanes title="Sign in">
+	<div class="w-full max-w-prose">
+		<h1 class="pb-4 text-2xl lg:text-4xl 2xl:text-5xl font-medium">
+			Welcome to <span class="text-middle">X</span>
+		</h1>
+		<p>Please enter your credentials to log in</p>
+		<form class="my-2" action="">
+			<Input
+				type="email"
+				name="email"
+				value=""
+				autocomplete="email"
+				error="Please enter a valid e-mail address."
+				small="Your e-mail address."
+			>
+				E-mail
+			</Input>
+			<Password name="password" value="" autocomplete="current-password">
+				Password
+			</Password>
+			<Checkbox name="remember" checked={false}>Remember me</Checkbox>
+			<Submit>Sign in</Submit>
+			<div class="my-4 flex flex-wrap justify-between gap-4">
+				<p>
+					<a href="/forgotten-password" class="link">
+						Forgot password?
+					</a>
+				</p>
+				<p>
+					Don't have an account?
+					<a href="/request-access" class="link">Send request</a>
+				</p>
+			</div>
+		</form>
+	</div>
+</TwoPanes>

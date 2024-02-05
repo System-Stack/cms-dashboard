@@ -1,0 +1,22 @@
+---
+import TwoPanes from '../../layouts/TwoPanes.astro'
+import Check from '../../../public/fonts/material-symbols-outlined/done.svg?raw'
+---
+
+<TwoPanes title="Forgotten Password e-mail sent">
+	<div class="w-full max-w-prose">
+		<div
+			class="flex justify-center items-center w-20 h-20 p-2
+                text-middle border-2 border-middle rounded-full
+                *:w-16 *:h-16"
+		>
+			<Fragment set:html={Check} />
+		</div>
+		<h1 class="mt-4 pb-4 text-2xl lg:text-4xl 2xl:text-5xl font-medium">
+			E-mail sent
+		</h1>
+		<p>
+			Check your e-mail application and open the link we sent to continue.
+		</p>
+	</div>
+</TwoPanes>
