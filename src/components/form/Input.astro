@@ -1,0 +1,71 @@
+---
+type Props = {
+	type?: 'text' | 'email'
+	name: string
+	required?: boolean
+	value: string
+	small?: string
+	error?: string
+	autocomplete?: string
+}
+
+const {
+	type = 'text',
+	name,
+	required = false,
+	value,
+	small,
+	error,
+	autocomplete,
+} = Astro.props
+---
+
+<div class="my-6 relative flex flex-col">
+	<div class="relative z-0">
+		<input
+			type={type}
+			name={name}
+			id={name}
+			value={value}
+			required={required}
+			aria-label={name}
+			aria-required={required ? 'true' : 'false'}
+			aria-invalid={error ? true : false}
+			aria-describedby={`${name}-error`}
+			autocomplete={autocomplete}
+			class="block relative w-full h-14 py-2 px-4 peer
+				rounded border leading-5 overflow-x-auto
+				bg-transparent text-darkgray border-middlegray
+				dark:text-lightgray dark:border-middlegray
+				focus:outline-none focus:ring-0 focus:border-2
+				focus:border-middle/50 dark:focus:border-middle/50"
+			placeholder=""
+		/>
+
+		<label
+			for={name}
+			class="absolute top-4 left-4 z-10 tracking-[.03125em]
+				bg-transparent text-darkgray dark:text-lightgray
+				duration-300 transform px-1 -translate-y-7 scale-75 origin-[0]
+				peer-focus:left-4 peer-focus:text-middle dark:peer-focus:text-middle
+				peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+				peer-focus:scale-75 peer-focus:-translate-y-7
+				peer-focus:bg-white dark:peer-focus:bg-darker
+				peer-focus:px-1 peer-invalid:text-red-700 dark:peer-invalid:text-red-400"
+		>
+			<slot />
+		</label>
+	</div>
+	{small && <div class="pt-1 px-4 text-xs tracking-[0.4px]">{small}</div>}
+	{
+		error && (
+			<div
+				id={`${name}-error`}
+				aria-live="polite"
+				class="pt-1 px-4 text-xs tracking-[0.4px] error"
+			>
+				{error}
+			</div>
+		)
+	}
+</div>

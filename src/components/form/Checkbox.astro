@@ -1,0 +1,48 @@
+---
+type Props = {
+	name: string
+	required?: boolean
+	checked: boolean
+	small?: string
+	error?: string
+}
+
+const { name, required = false, checked, small, error } = Astro.props
+---
+
+<div class="my-6">
+	<label class="flex items-center">
+		<input
+			type="checkbox"
+			name={name}
+			id={name}
+			checked={checked}
+			required={required}
+			aria-label={name}
+			aria-required={required ? 'true' : 'false'}
+			aria-invalid={error ? true : false}
+			aria-describedby={`${name}-error`}
+			class="flex justify-center items-center appearance-none
+                w-[18px] h-[18px] mr-3 rounded font-bold
+                bg-transparent text-white border border-middlegray
+                ring-middle/50 ring-offset-1 ring-offset-white dark:ring-offset-darker
+                hover:ring-2 focus:outline-none focus:ring-2 checked:bg-middle
+                before:bg-white before:content-[''] before:w-full before:h-full before:scale-0
+                before:transition-transform checked:before:scale-100
+                accent-middle hover:accent-middle dark:accent-middle"
+		/>
+		<span><slot /></span>
+	</label>
+	{small && <div class="pt-1 px-4 text-xs tracking-[0.4px]">{small}</div>}
+	{
+		error && (
+			<div
+				id={`${name}-error`}
+				aria-live="polite"
+				class="pt-1 px-4 text-xs tracking-[0.4px] error"
+			>
+				{error}
+			</div>
+		)
+	}
+</div>

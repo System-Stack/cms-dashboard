@@ -1,0 +1,98 @@
+/**
+ * Tailwind CSS imports
+ * View the full documentation at https://tailwindcss.com
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	@font-face {
+		font-family: 'Raleway';
+		font-style: normal;
+		font-weight: 400;
+		font-display: 'swap';
+		src: url('/fonts/static/raleway-v29-latin-regular.woff2')
+				format('woff2'),
+			url('/fonts/static/Raleway-Regular.woff') format('woff'),
+			url('/fonts/static/Raleway-Regular.ttf') format('truetype');
+	}
+	@font-face {
+		font-family: 'Raleway';
+		font-style: normal;
+		font-weight: 500;
+		font-display: 'swap';
+		src: url('/fonts/static/raleway-v29-latin-500.woff2') format('woff2'),
+			url('/fonts/static/Raleway-Medium.woff2') format('woff'),
+			url('/fonts/static/Raleway-Medium.ttf') format('truetype');
+	}
+	@font-face {
+		font-family: 'Raleway';
+		font-style: normal;
+		font-weight: 700;
+		font-display: 'swap';
+		src: url('/fonts/static/raleway-v29-latin-700.woff2') format('woff2'),
+			url('/fonts/static/Raleway-Bold.woff2') format('woff'),
+			url('/fonts/static/Raleway-Bold.ttf') format('truetype');
+	}
+	@supports (font-variation-settings: normal) {
+		@font-face {
+			font-family: 'Raleway';
+			font-style: normal;
+			font-weight: 400 500 700;
+			font-display: 'swap';
+			src: url('/fonts/Raleway-VariableFont_wght.woff2') format('woff2'),
+				url('/fonts/Raleway-VariableFont_wght.woff') format('woff'),
+				url('/fonts/Raleway-VariableFont_wght.ttf') format('truetype');
+		}
+	}
+
+	html {
+		font-family: 'Raleway', 'Helvetica', 'Arial', 'sans-serif';
+	}
+}
+
+@layer components {
+	.login-bg {
+		@apply bg-dark bg-cover;
+		background-image: linear-gradient(
+				180deg,
+				rgba(35, 41, 65, 0) 20%,
+				rgba(35, 41, 65, 0.6) 40%,
+				rgba(35, 41, 65, 1) 100%
+			),
+			url('https://source.unsplash.com/random/?restaurant');
+	}
+	@media (min-width: 768px) {
+		.login-bg {
+			background-image: linear-gradient(
+					180deg,
+					rgba(35, 41, 65, 0) 40%,
+					rgba(35, 41, 65, 0.6) 50%,
+					rgba(35, 41, 65, 1) 100%
+				),
+				url('https://source.unsplash.com/random/?restaurant');
+		}
+	}
+
+	.error {
+		@apply text-rose-700 dark:text-rose-400;
+	}
+
+	input[type='checkbox']::before {
+		clip-path: polygon(
+			17% 54%,
+			28% 43%,
+			38% 54%,
+			70% 22%,
+			81% 33%,
+			38% 75%,
+			17% 54%
+		);
+	}
+
+	.link {
+		@apply rounded text-dark dark:text-middle underline hover:underline-offset-4;
+		@apply focus:outline-none focus:p-1 focus:bg-middle focus:text-white;
+	}
+}

@@ -1,0 +1,32 @@
+---
+import TwoPanes from '../../layouts/TwoPanes.astro'
+import Input from '../../components/form/Input.astro'
+import Submit from '../../components/form/Submit.astro'
+---
+
+<TwoPanes title="Forgotten Password">
+	<div class="w-full max-w-prose">
+		<h1 class="pb-4 text-2xl lg:text-4xl 2xl:text-5xl font-medium">
+			Forgotten Password
+		</h1>
+		<p>
+			Please enter your e-mail and we'll send you a link to reset your
+			password.
+		</p>
+		<form class="my-2" action="">
+			<Input type="email" name="email" value="" autocomplete="email">
+				E-mail
+			</Input>
+			<Submit>Send link to e-mail</Submit>
+			<div class="my-4 flex flex-wrap justify-between gap-4">
+				<p>
+					<a href="/login" class="link"> Back to Sign in</a>
+				</p>
+				<p>
+					Don't have an account?
+					<a href="/request-access" class="link">Send request</a>
+				</p>
+			</div>
+		</form>
+	</div>
+</TwoPanes>
