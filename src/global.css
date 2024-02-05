@@ -6,16 +6,108 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 400;
+    font-display: "swap";
+    src:
+      url("/fonts/static/raleway-v29-latin-regular.woff2") format("woff2"),
+      url("/fonts/static/Raleway-Regular.woff") format("woff"),
+      url("/fonts/static/Raleway-Regular.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 500;
+    font-display: "swap";
+    src:
+      url("/fonts/static/raleway-v29-latin-500.woff2") format("woff2"),
+      url("/fonts/static/Raleway-Medium.woff2") format("woff"),
+      url("/fonts/static/Raleway-Medium.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 700;
+    font-display: "swap";
+    src:
+      url("/fonts/static/raleway-v29-latin-700.woff2") format("woff2"),
+      url("/fonts/static/Raleway-Bold.woff2") format("woff"),
+      url("/fonts/static/Raleway-Bold.ttf") format("truetype");
+  }
+  @supports (font-variation-settings: normal) {
+    @font-face {
+      font-family: "Raleway";
+      font-style: normal;
+      font-weight: 400 500 700;
+      font-display: "swap";
+      src:
+        url("/fonts/Raleway-VariableFont_wght.woff2") format("woff2"),
+        url("/fonts/Raleway-VariableFont_wght.woff") format("woff"),
+        url("/fonts/Raleway-VariableFont_wght.ttf") format("truetype");
+    }
+  }
+
+  html {
+    font-family: "Raleway", "Helvetica", "Arial", "sans-serif";
+  }
+}
+
 @layer components {
   .login-bg {
     @apply bg-dark bg-cover;
     background-image: linear-gradient(
         180deg,
-        rgba(35, 41, 65, 0) 45%,
-        rgba(35, 41, 65, 0.6) 66%,
+        rgba(35, 41, 65, 0) 20%,
+        rgba(35, 41, 65, 0.6) 40%,
         rgba(35, 41, 65, 1) 100%
       ),
       url("https://source.unsplash.com/random/?restaurant");
     /* or use pattern: url("/layout/i-like-food.svg");*/
+  }
+  @media (min-width: 768px) {
+    .login-bg {
+      background-image: linear-gradient(
+          180deg,
+          rgba(35, 41, 65, 0) 40%,
+          rgba(35, 41, 65, 0.6) 50%,
+          rgba(35, 41, 65, 1) 100%
+        ),
+        url("https://source.unsplash.com/random/?restaurant");
+    }
+  }
+
+  .dash-heading {
+    @apply bg-dark;
+    background-image: linear-gradient(
+        90deg,
+        rgba(41, 86, 81, 0) 0%,
+        rgba(41, 86, 81, 1) 66%
+      ),
+      url("/layout/floating-cogs.svg");
+  }
+
+  .link {
+    @apply rounded text-dark underline hover:underline-offset-4 dark:text-light;
+    @apply focus:bg-middle focus:p-1 focus:text-white focus:outline-none;
+  }
+
+  .focus-ring {
+    @apply focus:border-light focus:outline-none focus:ring focus:ring-light focus:ring-opacity-50;
+    /* background-color: #97BAA4; */
+    /* @apply hover:ring-lighter focus:outline-none focus:ring-lighter;
+    @apply ring-1 ring-dark ring-opacity-50 ring-offset-2 ring-offset-dark; */
+  }
+  .hover-ring {
+    @apply hover:border-light hover:ring hover:ring-light hover:ring-opacity-50;
+  }
+
+  .displaced-border {
+    @apply relative;
+  }
+  .displaced-border:hover {
+    @apply before:absolute before:top-2 before:-z-10 before:h-full before:w-full before:rounded-full before:ring before:ring-light;
   }
 }
