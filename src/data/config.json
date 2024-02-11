@@ -1,0 +1,9 @@
+{
+	"title": "CMS Dashboard",
+	"keywords": "admin, dashboard, cms",
+	"description": "A content management dashboard frontend built with Astro and Qwik",
+	"public": {
+		"heading": "Some description of the company",
+		"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut scelerisque neque. Integer tempus vestibulum dui, eu imperdiet diam. Vestibulum lobortis et neque ac ultricies. Nam faucibus, mi ut viverra aliquet, justo erat consectetur lorem, eget cursus lorem justo ut risus."
+	}
+}

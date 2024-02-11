@@ -13,8 +13,20 @@ import Submit from '../../components/form/Submit.astro'
 			Please enter your e-mail and we'll send you a link to reset your
 			password.
 		</p>
-		<form class="my-2" action="">
-			<Input type="email" name="email" value="" autocomplete="email">
+		<form
+			class="my-2"
+			action="/api/password-reset"
+			method="post"
+			aria-label="Password reset request form"
+			enctype="application/x-www-form-urlencoded"
+		>
+			<Input
+				type="email"
+				name="email"
+				required={true}
+				value=""
+				autocomplete="email"
+			>
 				E-mail
 			</Input>
 			<Submit>Send link to e-mail</Submit>

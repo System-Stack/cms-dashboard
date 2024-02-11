@@ -1,19 +1,27 @@
 {
-	"name": "cms-dashboard",
-	"type": "module",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro check && astro build",
-		"preview": "astro preview",
-		"astro": "astro"
-	},
-	"dependencies": {
-		"@astrojs/check": "^0.4.1",
-		"@astrojs/tailwind": "^5.1.0",
-		"astro": "^4.2.8",
-		"tailwindcss": "^3.4.1",
-		"typescript": "^5.3.3"
-	}
+  "name": "cms-dashboard",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.4.1",
+    "@astrojs/tailwind": "^5.1.0",
+    "astro": "^4.2.8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.8.4",
+    "@playwright/test": "^1.41.2",
+    "@types/node": "^20.11.16",
+    "axe-html-reporter": "^2.2.3",
+    "msw": "^2.1.7",
+    "playwright-msw": "^3.0.1"
+  }
 }

@@ -12,18 +12,28 @@ import Submit from '../components/form/Submit.astro'
 			Welcome to <span class="text-middle">X</span>
 		</h1>
 		<p>Please enter your credentials to log in</p>
-		<form class="my-2" action="">
+		<form
+			class="my-2"
+			action="/api/login"
+			method="post"
+			aria-label="Login form"
+			enctype="application/x-www-form-urlencoded"
+		>
 			<Input
 				type="email"
 				name="email"
+				required={true}
 				value=""
 				autocomplete="email"
-				error="Please enter a valid e-mail address."
-				small="Your e-mail address."
 			>
 				E-mail
 			</Input>
-			<Password name="password" value="" autocomplete="current-password">
+			<Password
+				name="password"
+				required={true}
+				value=""
+				autocomplete="current-password"
+			>
 				Password
 			</Password>
 			<Checkbox name="remember" checked={false}>Remember me</Checkbox>

@@ -18,10 +18,9 @@ const { name, required = false, checked, small, error } = Astro.props
 			id={name}
 			checked={checked}
 			required={required}
-			aria-label={name}
 			aria-required={required ? 'true' : 'false'}
-			aria-invalid={error ? true : false}
-			aria-describedby={`${name}-error`}
+			aria-invalid={error ? 'true' : 'false'}
+			aria-describedby={error ? `${name}-error` : null}
 			class="flex justify-center items-center appearance-none
                 w-[18px] h-[18px] mr-3 rounded font-bold
                 bg-transparent text-white border border-middlegray
