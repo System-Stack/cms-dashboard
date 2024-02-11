@@ -1,0 +1,30 @@
+---
+import TwoPanes from '../layouts/TwoPanes.astro'
+---
+
+<TwoPanes title="Page Not Found">
+	<div class="w-full max-w-prose">
+		<h1 class="pb-4 text-2xl lg:text-4xl 2xl:text-5xl font-medium">
+			<span class="error">404</span> | Page not found
+		</h1>
+		<div class="my-8">
+			<p class="my-4">
+				The page you are looking for cannot be found. It might not
+				exist, might have been removed or it might be temporarily
+				unavailable.
+			</p>
+			<p class="my-4">
+				It is also possible that you need to be logged in to access it.
+			</p>
+		</div>
+		<div class="my-4 flex flex-wrap justify-between gap-4">
+			<p>
+				<a href="/login" class="link">Go Sign in</a>
+			</p>
+			<p>
+				Don't have an account?
+				<a href="/request-access" class="link">Send request</a>
+			</p>
+		</div>
+	</div>
+</TwoPanes>

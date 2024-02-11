@@ -28,29 +28,28 @@ const {
 			id={name}
 			value={value}
 			required={required}
-			aria-label={name}
 			aria-required={required ? 'true' : 'false'}
-			aria-invalid={error ? true : false}
-			aria-describedby={`${name}-error`}
+			aria-invalid={error ? 'true' : 'false'}
+			aria-describedby={error ? `${name}-error` : null}
 			autocomplete={autocomplete}
 			class="block relative w-full h-14 py-2 px-4 peer
 				rounded border leading-5 overflow-x-auto
 				bg-transparent text-darkgray border-middlegray
 				dark:text-lightgray dark:border-middlegray
 				focus:outline-none focus:ring-0 focus:border-2
-				focus:border-middle/50 dark:focus:border-middle/50"
+				focus:border-middle/50 dark:focus:border-middle/50
+				invalid:border-red-700 dark:invalid:border-red-400"
 			placeholder=""
 		/>
 
 		<label
 			for={name}
 			class="absolute top-4 left-4 z-10 tracking-[.03125em]
-				bg-transparent text-darkgray dark:text-lightgray
+				bg-white dark:bg-darker text-darkgray dark:text-lightgray
 				duration-300 transform px-1 -translate-y-7 scale-75 origin-[0]
 				peer-focus:left-4 peer-focus:text-middle dark:peer-focus:text-middle
 				peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
 				peer-focus:scale-75 peer-focus:-translate-y-7
-				peer-focus:bg-white dark:peer-focus:bg-darker
 				peer-focus:px-1 peer-invalid:text-red-700 dark:peer-invalid:text-red-400"
 		>
 			<slot />
